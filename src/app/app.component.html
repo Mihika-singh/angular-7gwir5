@@ -1,0 +1,44 @@
+<div class="hea"><h4>Favourite restaurant</h4></div>
+<div class="jumbotron d-flex m-1 mb-4">
+  <div class="p-2 col-6"><h3>Choose your restaurant</h3></div>
+  <div class="card p-2 col-6">
+    <div class="card-body">
+      <h5>
+        Add food
+        <span class="badge badge-secondary">{{ restaurantList.count }}</span>
+      </h5>
+      <p [hidden]="!hasChoosen">
+        <strong>Total items: </strong>{{ restaurantList.titles }}
+      </p>
+      <p [hidden]="!hasChoosen">
+        <strong>Total Payable Amount: </strong>{{ restaurantList.price }}
+      </p>
+      <button
+        class="btn btn-danger"
+        style="flex"
+        [hidden]="!hasChoosen"
+        (click)="totalamount()"
+      >
+        Add to cart
+      </button>
+    </div>
+  </div>
+
+  <!--Exercise:
+    Make this a component
+    send in the data for # of movies rented, and list of titles
+    BONUS: hook up the rent buttons below 
+   -->
+</div>
+
+<div style="display:flex; justify-content:space-evenly;flex-wrap:wrap; ">
+  <my-order-food
+    [order]="Res1"
+    (orderFood)="orderClick($event)"
+  ></my-order-food>
+
+  <my-order-food
+    [order]="Res2"
+    (orderFood)="orderClick($event)"
+  ></my-order-food>
+</div>
